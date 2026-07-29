@@ -45,6 +45,9 @@ Functions
 
 .. autoapisummary::
 
+   pudl.extract.dbf.convert_db_into_parquet
+   pudl.extract.dbf.convert_and_validate_datapackage_sqlite_to_parquet
+   pudl.extract.dbf.write_datapackage
    pudl.extract.dbf.add_key_constraints
    pudl.extract.dbf.deduplicate_by_year
 
@@ -341,9 +344,9 @@ Module Contents
 
 
 
-.. py:class:: FercDbfExtractor(datastore: pudl.workspace.datastore.Datastore, settings: pudl.settings.FercToSqliteSettings, output_path: pathlib.Path)
+.. py:class:: FercDbfExtractor(datastore: pudl.workspace.datastore.Datastore, data_config: pudl.settings.FercDbfToSqliteDataConfig, output_path: pathlib.Path)
 
-   Generalized class for loading data from foxpro databases into SQLAlchemy.
+   Generalized class for loading data from foxpro databases into SQLAlchemy and parquet.
 
    When subclassing from this generic extractor, one should implement dataset specific
    logic in the following manner:
@@ -380,20 +383,24 @@ Module Contents
 
 
 
-   .. py:attribute:: settings
-      :type:  pudl.settings.FercDbfToSqliteSettings
+   .. py:attribute:: data_config
+      :type:  pudl.settings.FercDbfToSqliteDataConfig
 
 
    .. py:attribute:: output_path
+      :type:  pathlib.Path
 
 
    .. py:attribute:: datastore
+      :type:  pudl.workspace.datastore.Datastore
 
 
    .. py:attribute:: dbf_reader
+      :type:  AbstractFercDbfReader
 
 
    .. py:attribute:: sqlite_engine
+      :type:  sqlalchemy.engine.base.Engine
       :value: None
 
 
@@ -401,11 +408,9 @@ Module Contents
    .. py:attribute:: sqlite_meta
 
 
-   .. py:method:: get_settings(global_settings: pudl.settings.FercToSqliteSettings) -> pudl.settings.FercDbfToSqliteSettings
-      :abstractmethod:
+   .. py:method:: get_data_config(ferc_to_sqlite_data_config: pudl.settings.FercToSqliteDataConfig) -> pudl.settings.FercDbfToSqliteDataConfig
 
-
-      Returns dataset relevant settings from the global_settings.
+      Returns dataset relevant data configuration from ferc_to_sqlite_data_config.
 
 
 
@@ -417,7 +422,38 @@ Module Contents
 
    .. py:method:: get_db_path() -> str
 
+      Returns the path to the sqlite database.
+
+
+
+   .. py:method:: get_db_uri() -> str
+
       Returns the connection string for the sqlite database.
+
+
+
+   .. py:method:: _clean_frictionless_types(type_: str) -> str
+
+      Normalize types from SQLite to frictionless.
+
+
+
+   .. py:property:: datapackage_path
+      :type: pathlib.Path
+
+
+      Returns the path to the datapackage for this resource.
+
+
+   .. py:method:: to_frictionless()
+
+      Create a frictionless DataPackage describing the DBF DB and write to a JSON file.
+
+
+
+   .. py:method:: to_parquet()
+
+      Write parquet files for this resource.
 
 
 
@@ -431,13 +467,13 @@ Module Contents
 
    .. py:method:: execute()
 
-      Runs the extraction of the data from dbf to sqlite.
+      Runs the extraction of the data from dbf to sqlite and parquet.
 
 
 
-   .. py:method:: delete_schema()
+   .. py:method:: initialize_database()
 
-      Drops all tables from the existing sqlite database.
+      Create sqlalchemy engine and metadata.
 
 
 
@@ -495,6 +531,39 @@ Module Contents
 
       This method is called after all the data is loaded into sqlite.
 
+
+
+.. py:function:: convert_db_into_parquet(db_path: pathlib.Path, parquet_dir: pathlib.Path)
+
+   Convert the database into a directory of parquet files using duckdb.
+
+   We do this using COPY. We tried using EXPORT DATABASE, but it unfortunately
+   sanitizes the table names, which removes the schedule numbers in the table
+   names so we can't use it.
+
+   Maintainer note: this function was adapted from ferc-xbrl-extractor; changes
+   here should be considered for sync there and vice-versa.
+
+
+.. py:function:: convert_and_validate_datapackage_sqlite_to_parquet(datapackage_path: pathlib.Path) -> dict
+
+   Convert the SQLite datapackage into one that points at Parquet files.
+
+   * instead of ``path`` pointing at monolithic SQLite db, point at individual Parquet files instead
+   * update format/metadata fields
+
+   Maintainer note: this function was adapted from ferc-xbrl-extractor; changes
+   here should be considered for sync there and vice-versa.
+
+
+.. py:function:: write_datapackage(datapackage: dict, output_dir: pathlib.Path)
+
+   Write a datapackage to <output_dir>/datapackage.json.
+
+   output_dir must exist.
+
+   Maintainer note: this function was adapted from ferc-xbrl-extractor; changes
+   here should be considered for sync there and vice-versa.
 
 
 .. py:function:: add_key_constraints(meta: sqlalchemy.MetaData, pk_table: str, column: str, pk_column: str | None = None) -> sqlalchemy.MetaData

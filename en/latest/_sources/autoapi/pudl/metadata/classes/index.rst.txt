@@ -21,6 +21,10 @@ Attributes
    pudl.metadata.classes.PositiveFloat
    pudl.metadata.classes.T
    pudl.metadata.classes.StrictList
+   pudl.metadata.classes.FieldNamespace
+   pudl.metadata.classes.FIELD_NAMESPACES
+   pudl.metadata.classes.EtlGroup
+   pudl.metadata.classes.ETL_GROUPS
    pudl.metadata.classes.PUDL_PACKAGE
 
 
@@ -136,6 +140,24 @@ Module Contents
 
    Allows :class:`list`, :class:`tuple`, :class:`set`, :class:`frozenset`,
    :class:`collections.deque`, or generators and casts to a :class:`list`.
+
+.. py:data:: FieldNamespace
+
+   Canonical field namespace identifiers used by PUDL resources.
+
+.. py:data:: FIELD_NAMESPACES
+   :type:  tuple[FieldNamespace, Ellipsis]
+
+   All valid PUDL field namespace identifiers.
+
+.. py:data:: EtlGroup
+
+   Canonical ETL group identifiers used by PUDL resources.
+
+.. py:data:: ETL_GROUPS
+   :type:  tuple[EtlGroup, Ellipsis]
+
+   All valid PUDL ETL group identifiers.
 
 .. py:function:: _check_unique(value: list = None) -> list | None
 
@@ -552,6 +574,13 @@ Module Contents
 
       Return polars data type.
 
+      Enum-constrained string fields are stored as unconstrained
+      :class:`pl.Categorical` rather than :class:`pl.Enum`. Polars embeds a fixed,
+      ordered category list from an ``Enum`` column directly in the Parquet field
+      metadata, which permanently pins the physical dtype: any later attempt to scan
+      that file with a different schema or even slightly different ``Enum`` fails
+      instead of being coerced. ``Categorical`` round-trips through Parquet fine.
+
 
 
    .. py:method:: to_pandas_dtype(compact: bool = False) -> str | pandas.CategoricalDtype
@@ -589,6 +618,17 @@ Module Contents
    .. py:method:: encode(col: pandas.Series, dtype: type | None = None) -> pandas.Series
 
       Recode the Field if it has an associated encoder.
+
+
+
+   .. py:method:: to_frictionless() -> frictionless.Field
+
+      Convert to a Frictionless Field.
+
+      Builds a typed frictionless Field via ``Field.from_descriptor()`` so that the
+      ``type`` (and any non-default constraints) appear in the serialised descriptor.
+      PUDL's ``geometry`` type has no frictionless equivalent and falls back to
+      ``"string"`` with a custom ``"geometry_format": "wkt"`` annotation.
 
 
 
@@ -657,6 +697,12 @@ Module Contents
 
 
 
+   .. py:method:: to_frictionless() -> dict
+
+      Convert to a frictionless foreign key descriptor dict.
+
+
+
 .. py:class:: Schema(/, **data: Any)
 
    Bases: :py:obj:`PudlMeta`
@@ -711,7 +757,7 @@ Module Contents
 
 
 
-   .. py:method:: to_pandera() -> pandera.polars.DataFrameSchema
+   .. py:method:: to_pandera() -> pandera.polars.DataFrameSchema | pandera.pandas.DataFrameSchema
 
       Turn PUDL Schema into Pandera schema, so dagster can understand it.
 
@@ -781,9 +827,9 @@ Module Contents
 
 
 
-   .. py:attribute:: role
-      :type:  Literal['author', 'contributor', 'maintainer', 'publisher', 'wrangler']
-      :value: 'contributor'
+   .. py:attribute:: roles
+      :type:  list[Literal['author', 'contributor', 'maintainer', 'publisher', 'wrangler']]
+      :value: ['contributor']
 
 
 
@@ -800,6 +846,12 @@ Module Contents
 
 
    .. py:attribute:: orcid
+      :type:  String | None
+      :value: None
+
+
+
+   .. py:attribute:: name
       :type:  String | None
       :value: None
 
@@ -853,15 +905,11 @@ Module Contents
 
 
    .. py:attribute:: title
-      :type:  String | None
-      :value: None
-
+      :type:  String
 
 
    .. py:attribute:: description
-      :type:  String | None
-      :value: None
-
+      :type:  String
 
 
    .. py:attribute:: keywords
@@ -871,14 +919,12 @@ Module Contents
 
 
    .. py:attribute:: path
-      :type:  pydantic.AnyHttpUrl | None
-      :value: None
-
+      :type:  pydantic.AnyHttpUrl
 
 
    .. py:attribute:: contributors
       :type:  list[Contributor]
-      :value: []
+      :value: None
 
 
 
@@ -937,6 +983,18 @@ Module Contents
    .. py:method:: to_rst(docs_dir: pydantic.DirectoryPath, source_resources: list[Resource], extra_resources: list[Resource], output_path: str | None = None, datastore: pudl.workspace.datastore.Datastore | None = None) -> None
 
       Output a representation of the data source in RST for documentation.
+
+
+
+   .. py:method:: to_frictionless() -> dict
+
+      Serialize to a frictionless data source descriptor.
+
+      The frictionless spec defines ``title``, ``path``, and ``email`` as
+      standard source fields.  PUDL-specific fields (``name``,
+      ``description``, ``keywords``, ``concept_doi``, ``license_raw``,
+      ``license_pudl``, ``contributors``) are included as extensions and
+      are preserved by the frictionless library.
 
 
 
@@ -1123,7 +1181,7 @@ Module Contents
 
 
       .. py:attribute:: table_type_code
-         :type:  Literal['assn', 'codes', 'entity', 'scd', 'timeseries'] | None
+         :type:  Literal['assn', 'codes', 'entity', 'scd', 'timeseries', 'forensics'] | None
          :value: None
 
 
@@ -1554,12 +1612,6 @@ Module Contents
 
 
 
-   .. py:attribute:: profile
-      :type:  String
-      :value: 'tabular-data-resource'
-
-
-
    .. py:attribute:: contributors
       :type:  list[Contributor]
       :value: []
@@ -1603,13 +1655,13 @@ Module Contents
 
 
    .. py:attribute:: field_namespace
-      :type:  Literal['censusdp1tract', 'eia', 'eiaaeo', 'eiaapi', 'epacems', 'ferc', 'ferc1', 'ferc714', 'ferceqr', 'glue', 'gridpathratoolkit', 'ppe', 'pudl', 'nrelatb', 'vcerare', 'phmsagas', 'sec', 'rus'] | None
+      :type:  FieldNamespace | None
       :value: None
 
 
 
    .. py:attribute:: etl_group
-      :type:  Literal['censusdp1tract', 'eia176', 'eia191', 'eia860', 'eia861', 'eia861_disabled', 'eia923', 'eia930', 'eiaaeo', 'entity_eia', 'epacems', 'entity_ferc', 'ferc1', 'ferc1_disabled', 'ferc714', 'ferceqr', 'glue', 'gridpathratoolkit', 'outputs', 'static_ferc1', 'static_eia', 'static_eia_disabled', 'eiaapi', 'state_demand', 'static_pudl', 'service_territories', 'nrelatb', 'vcerare', 'phmsagas', 'sec10k', 'rus7', 'static_rus', 'rus12'] | None
+      :type:  EtlGroup | None
       :value: None
 
 
@@ -1720,7 +1772,7 @@ Module Contents
 
 
 
-   .. py:method:: to_frictionless() -> dict
+   .. py:method:: to_frictionless() -> frictionless.Resource
 
       Convert to a Frictionless Resource.
 
@@ -1974,6 +2026,12 @@ Module Contents
 
 
 
+   .. py:attribute:: version
+      :type:  str | None
+      :value: None
+
+
+
    .. py:attribute:: keywords
       :type:  list[String]
       :value: []
@@ -2010,12 +2068,6 @@ Module Contents
       :type:  StrictList[Resource]
 
 
-   .. py:attribute:: profile
-      :type:  String
-      :value: 'tabular-data-package'
-
-
-
    .. py:attribute:: model_config
 
       Configuration for the model, should be a dictionary conforming to [`ConfigDict`][pydantic.config.ConfigDict].
@@ -2023,6 +2075,18 @@ Module Contents
 
    .. py:method:: _check_foreign_keys(resources: list[Resource])
       :classmethod:
+
+
+
+   .. py:method:: _compile_from_resources(resources: list[Resource]) -> dict[str, list[Any]]
+      :staticmethod:
+
+
+      Compile deduplicated contributors, licenses, keywords, and sources from resources.
+
+      Returns a dict with keys ``contributors``, ``licenses``, ``keywords``, and
+      ``sources``, each containing a deduplicated list of values drawn from
+      ``resources`` in order of first appearance.
 
 
 
@@ -2037,7 +2101,7 @@ Module Contents
 
 
 
-   .. py:method:: from_resource_ids(resource_ids: tuple[str] = tuple(sorted(RESOURCE_METADATA)), resolve_foreign_keys: bool = False, excluded_etl_groups: tuple[str] = ()) -> Package
+   .. py:method:: from_resource_ids(resource_ids: tuple[str] = tuple(sorted(RESOURCE_METADATA)), resolve_foreign_keys: bool = False, excluded_etl_groups: tuple[str] = (), title: str | None = None, description: str | None = None, version: str | None = None) -> Package
       :classmethod:
 
 
@@ -2057,6 +2121,9 @@ Module Contents
                                    foreign keys.
       :param excluded_etl_groups: Collection of ETL groups used to filter resources
                                   out of Package.
+      :param title: Human-readable title for the package.
+      :param description: Human-readable description of the package.
+      :param version: Version string for the package.
 
 
 
@@ -2130,7 +2197,7 @@ Module Contents
 
 
 
-   .. py:method:: to_frictionless(exclude_pattern: re.Pattern[str] | None = None, include_pattern: re.Pattern[str] | None = None) -> frictionless.Package
+   .. py:method:: to_frictionless(exclude_pattern: str | re.Pattern[str] | None = None, include_pattern: str | re.Pattern[str] | None = None) -> frictionless.Package
 
       Convert to a Frictionless Datapackage.
 

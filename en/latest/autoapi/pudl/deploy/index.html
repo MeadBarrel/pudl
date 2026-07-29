@@ -17,7 +17,8 @@
         gtag('config', 'G-EXWBBTVMWK');
     </script>
     
-    <title>pudl.deploy &#8212; PUDL 0.0.0.dev11005 documentation</title>
+<link rel="alternate" type="text/markdown" title="Markdown version of this page" href="index.html.md" />
+    <title>pudl.deploy &#8212; PUDL 0.0.0.dev11137 documentation</title>
   
   
   
@@ -36,8 +37,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
@@ -45,18 +46,18 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../../../_static/documentation_options.js?v=75f470eb"></script>
+    <script src="../../../_static/documentation_options.js?v=af32c448"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'autoapi/pudl/deploy/index';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.catalyst.coop/pudl/available_versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
@@ -65,8 +66,8 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="pudl.deploy.ferceqr" href="ferceqr/index.html" />
-    <link rel="prev" title="pudl.defs" href="../defs/index.html" />
+    <link rel="next" title="pudl.deploy.pudl" href="pudl/index.html" />
+    <link rel="prev" title="pudl.definitions" href="../definitions/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -141,8 +142,8 @@
       
     
     
-    <img src="../../../_static/catalyst_logo-200x200.png" class="logo__image only-light" alt="PUDL 0.0.0.dev11005 documentation - Home"/>
-    <img src="../../../_static/catalyst_logo-200x200.png" class="logo__image only-dark pst-js-only" alt="PUDL 0.0.0.dev11005 documentation - Home"/>
+    <img src="../../../_static/catalyst_logo-200x200.png" class="logo__image only-light" alt="PUDL 0.0.0.dev11137 documentation - Home"/>
+    <img src="../../../_static/catalyst_logo-200x200.png" class="logo__image only-dark pst-js-only" alt="PUDL 0.0.0.dev11137 documentation - Home"/>
   
   
 </a></div>
@@ -225,11 +226,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -242,8 +250,51 @@
           
           
           
-          <a href="https://github.com/catalyst-cooperative/pudl" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/catalyst-cooperative/pudl" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mastodon.energy/@catalystcoop" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bsky.app/profile/catalyst.coop" title="Bluesky" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-bluesky fa-lg" aria-hidden="true"></i><span class="visually-hidden">Bluesky</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/company/catalyst-cooperative/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://opencollective.com/pudl" title="Support PUDL" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-donate fa-lg" aria-hidden="true"></i><span class="visually-hidden">Support PUDL</span></a>
         </li>
 </ul></div>
       
@@ -332,11 +383,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -349,8 +407,51 @@
           
           
           
-          <a href="https://github.com/catalyst-cooperative/pudl" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/catalyst-cooperative/pudl" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mastodon.energy/@catalystcoop" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bsky.app/profile/catalyst.coop" title="Bluesky" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-bluesky fa-lg" aria-hidden="true"></i><span class="visually-hidden">Bluesky</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/company/catalyst-cooperative/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://opencollective.com/pudl" title="Support PUDL" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-donate fa-lg" aria-hidden="true"></i><span class="visually-hidden">Support PUDL</span></a>
         </li>
 </ul></div>
         
@@ -359,7 +460,8 @@
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
     <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
   </svg>
   <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
@@ -401,29 +503,32 @@
 <li class="toctree-l3"><a class="reference internal" href="../analysis/timeseries_evaluation/index.html">pudl.analysis.timeseries_evaluation</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../convert/index.html">pudl.convert</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../convert/censusdp1tract_to_sqlite/index.html">pudl.convert.censusdp1tract_to_sqlite</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../convert/metadata_to_rst/index.html">pudl.convert.metadata_to_rst</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dagster/index.html">pudl.dagster</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dagster/asset_checks/index.html">pudl.dagster.asset_checks</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../dagster/assets/index.html">pudl.dagster.assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dagster/assets/core/index.html">pudl.dagster.assets.core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dagster/assets/deploy/index.html">pudl.dagster.assets.deploy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dagster/assets/raw/index.html">pudl.dagster.assets.raw</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../dbt_wrapper/index.html">pudl.dbt_wrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dagster/build/index.html">pudl.dagster.build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dagster/config/index.html">pudl.dagster.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dagster/io_managers/index.html">pudl.dagster.io_managers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dagster/jobs/index.html">pudl.dagster.jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dagster/partitions/index.html">pudl.dagster.partitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dagster/provenance/index.html">pudl.dagster.provenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dagster/resources/index.html">pudl.dagster.resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dagster/sensors/index.html">pudl.dagster.sensors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbt_schema/index.html">pudl.dbt_schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../definitions/index.html">pudl.definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../defs/index.html">pudl.defs</a></li>
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">pudl.deploy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="ferceqr/index.html">pudl.deploy.ferceqr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pudl/index.html">pudl.deploy.pudl</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../etl/index.html">pudl.etl</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../etl/asset_checks/index.html">pudl.etl.asset_checks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../etl/check_foreign_keys/index.html">pudl.etl.check_foreign_keys</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../etl/eia_bulk_elec_assets/index.html">pudl.etl.eia_bulk_elec_assets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../etl/ferc_to_sqlite_assets/index.html">pudl.etl.ferc_to_sqlite_assets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../etl/glue_assets/index.html">pudl.etl.glue_assets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../etl/static_assets/index.html">pudl.etl.static_assets</a></li>
-</ul>
-</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../extract/index.html">pudl.extract</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../extract/censusdp1tract/index.html">pudl.extract.censusdp1tract</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../extract/censuspep/index.html">pudl.extract.censuspep</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../extract/csv/index.html">pudl.extract.csv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../extract/dbf/index.html">pudl.extract.dbf</a></li>
@@ -459,14 +564,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../extract/xbrl/index.html">pudl.extract.xbrl</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../ferc_sqlite_provenance/index.html">pudl.ferc_sqlite_provenance</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../glue/index.html">pudl.glue</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../glue/ferc1_eia/index.html">pudl.glue.ferc1_eia</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../glue/ferc714/index.html">pudl.glue.ferc714</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers/index.html">pudl.helpers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../io_managers/index.html">pudl.io_managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logging_helpers/index.html">pudl.logging_helpers</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../metadata/index.html">pudl.metadata</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/classes/index.html">pudl.metadata.classes</a></li>
@@ -474,10 +577,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../metadata/constants/index.html">pudl.metadata.constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/descriptions/index.html">pudl.metadata.descriptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/dfs/index.html">pudl.metadata.dfs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../metadata/dtypes/index.html">pudl.metadata.dtypes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/enums/index.html">pudl.metadata.enums</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/fields/index.html">pudl.metadata.fields</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/helpers/index.html">pudl.metadata.helpers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/labels/index.html">pudl.metadata.labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../metadata/patterns/index.html">pudl.metadata.patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/resource_helpers/index.html">pudl.metadata.resource_helpers</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../metadata/resources/index.html">pudl.metadata.resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../metadata/resources/allocate_gen_fuel/index.html">pudl.metadata.resources.allocate_gen_fuel</a></li>
@@ -511,6 +616,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/sources/index.html">pudl.metadata.sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../metadata/units/index.html">pudl.metadata.units</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../metadata/warnings/index.html">pudl.metadata.warnings</a></li>
 </ul>
 </details></li>
@@ -587,13 +693,20 @@
 <li class="toctree-l3"><a class="reference internal" href="../package_data/vcerare/index.html">pudl.package_data.vcerare</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../resources/index.html">pudl.resources</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../scripts/index.html">pudl.scripts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../scripts/auto_match_utilities/index.html">pudl.scripts.auto_match_utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/check_path_permissions/index.html">pudl.scripts.check_path_permissions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scripts/dbt_helper/index.html">pudl.scripts.dbt_helper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../scripts/deploy/index.html">pudl.scripts.deploy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/dghome/index.html">pudl.scripts.dghome</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/generate_ferc_provenance/index.html">pudl.scripts.generate_ferc_provenance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scripts/generate_pudl_duckdb/index.html">pudl.scripts.generate_pudl_duckdb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/metadata_to_rst/index.html">pudl.scripts.metadata_to_rst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/pudl_check_fks/index.html">pudl.scripts.pudl_check_fks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/pudl_check_for_build/index.html">pudl.scripts.pudl_check_for_build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/pudl_datastore/index.html">pudl.scripts.pudl_datastore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/pudl_deploy/index.html">pudl.scripts.pudl_deploy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scripts/pudl_null_cols/index.html">pudl.scripts.pudl_null_cols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scripts/pudl_service_territories/index.html">pudl.scripts.pudl_service_territories</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scripts/resource_description/index.html">pudl.scripts.resource_description</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scripts/update_zenodo_dois/index.html">pudl.scripts.update_zenodo_dois</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scripts/zenodo_data_release/index.html">pudl.scripts.zenodo_data_release</a></li>
@@ -633,7 +746,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../transform/vcerare/index.html">pudl.transform.vcerare</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../validate/index.html">pudl.validate</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../validate/index.html">pudl.validate</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../validate/dbt/index.html">pudl.validate.dbt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../validate/integrity/index.html">pudl.validate.integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../validate/quality/index.html">pudl.validate.quality</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../workspace/index.html">pudl.workspace</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../workspace/datastore/index.html">pudl.workspace.datastore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../workspace/resource_cache/index.html">pudl.workspace.resource_cache</a></li>
@@ -658,6 +776,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../dev/run_a_release.html">Run a Versioned Release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../dev/pudl_id_mapping.html">PUDL ID Mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../dev/naming_conventions.html">Naming Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../dev/llm_best_practices.html">Best practices for working with LLMs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../dev/data_guidelines.html">Data and ETL Design Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../dev/nightly_data_builds.html">Nightly Data Builds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../dev/ferceqr_data_builds.html">FERC EQR Data Builds</a></li>
@@ -733,12 +852,11 @@
                   
   <section id="module-pudl.deploy">
 <span id="pudl-deploy"></span><h1>pudl.deploy<a class="headerlink" href="#module-pudl.deploy" title="Link to this heading">#</a></h1>
-<p>Package for distributing PUDL data.</p>
+<p>Deployment helpers for publishing PUDL build artifacts and services.</p>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ferceqr/index.html">pudl.deploy.ferceqr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pudl/index.html">pudl.deploy.pudl</a></li>
 </ul>
 </div>
@@ -756,20 +874,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../defs/index.html"
+       href="../definitions/index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">pudl.defs</p>
+        <p class="prev-next-title">pudl.definitions</p>
       </div>
     </a>
     <a class="right-next"
-       href="ferceqr/index.html"
+       href="pudl/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">pudl.deploy.ferceqr</p>
+        <p class="prev-next-title">pudl.deploy.pudl</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -818,8 +936,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -853,7 +971,12 @@
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+        <div class="footer-item">
+<p class="llms-txt-link">
+  <a href="../../../llms.txt"><span class="fa-solid fa-robot"></span> llms.txt</a>
 </p></div>
       
     </div>

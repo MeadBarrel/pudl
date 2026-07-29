@@ -17,7 +17,8 @@
         gtag('config', 'G-EXWBBTVMWK');
     </script>
     
-    <title>Metadata editing guide &#8212; PUDL 0.0.0.dev11005 documentation</title>
+<link rel="alternate" type="text/markdown" title="Markdown version of this page" href="metadata.html.md" />
+    <title>Metadata editing guide &#8212; PUDL 0.0.0.dev11137 documentation</title>
   
   
   
@@ -36,8 +37,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -45,18 +46,18 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../_static/documentation_options.js?v=75f470eb"></script>
+    <script src="../_static/documentation_options.js?v=af32c448"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'dev/metadata';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.catalyst.coop/pudl/available_versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
@@ -141,8 +142,8 @@
       
     
     
-    <img src="../_static/catalyst_logo-200x200.png" class="logo__image only-light" alt="PUDL 0.0.0.dev11005 documentation - Home"/>
-    <img src="../_static/catalyst_logo-200x200.png" class="logo__image only-dark pst-js-only" alt="PUDL 0.0.0.dev11005 documentation - Home"/>
+    <img src="../_static/catalyst_logo-200x200.png" class="logo__image only-light" alt="PUDL 0.0.0.dev11137 documentation - Home"/>
+    <img src="../_static/catalyst_logo-200x200.png" class="logo__image only-dark pst-js-only" alt="PUDL 0.0.0.dev11137 documentation - Home"/>
   
   
 </a></div>
@@ -225,11 +226,18 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -242,8 +250,51 @@
           
           
           
-          <a href="https://github.com/catalyst-cooperative/pudl" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/catalyst-cooperative/pudl" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mastodon.energy/@catalystcoop" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bsky.app/profile/catalyst.coop" title="Bluesky" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-bluesky fa-lg" aria-hidden="true"></i><span class="visually-hidden">Bluesky</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/company/catalyst-cooperative/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://opencollective.com/pudl" title="Support PUDL" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-donate fa-lg" aria-hidden="true"></i><span class="visually-hidden">Support PUDL</span></a>
         </li>
 </ul></div>
       
@@ -332,11 +383,18 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
         
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -349,8 +407,51 @@
           
           
           
-          <a href="https://github.com/catalyst-cooperative/pudl" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
-            <span class="sr-only">GitHub</span></a>
+          <a href="https://github.com/catalyst-cooperative/pudl" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mastodon.energy/@catalystcoop" title="Mastodon" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i><span class="visually-hidden">Mastodon</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://bsky.app/profile/catalyst.coop" title="Bluesky" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-bluesky fa-lg" aria-hidden="true"></i><span class="visually-hidden">Bluesky</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/company/catalyst-cooperative/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-linkedin fa-lg" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://opencollective.com/pudl" title="Support PUDL" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-donate fa-lg" aria-hidden="true"></i><span class="visually-hidden">Support PUDL</span></a>
         </li>
 </ul></div>
         
@@ -359,7 +460,8 @@
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
     <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
   </svg>
   <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
@@ -401,29 +503,32 @@
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/analysis/timeseries_evaluation/index.html">pudl.analysis.timeseries_evaluation</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/convert/index.html">pudl.convert</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/convert/censusdp1tract_to_sqlite/index.html">pudl.convert.censusdp1tract_to_sqlite</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/convert/metadata_to_rst/index.html">pudl.convert.metadata_to_rst</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/dagster/index.html">pudl.dagster</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/dagster/asset_checks/index.html">pudl.dagster.asset_checks</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../autoapi/pudl/dagster/assets/index.html">pudl.dagster.assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../autoapi/pudl/dagster/assets/core/index.html">pudl.dagster.assets.core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../autoapi/pudl/dagster/assets/deploy/index.html">pudl.dagster.assets.deploy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../autoapi/pudl/dagster/assets/raw/index.html">pudl.dagster.assets.raw</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/dbt_wrapper/index.html">pudl.dbt_wrapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/dagster/build/index.html">pudl.dagster.build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/dagster/config/index.html">pudl.dagster.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/dagster/io_managers/index.html">pudl.dagster.io_managers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/dagster/jobs/index.html">pudl.dagster.jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/dagster/partitions/index.html">pudl.dagster.partitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/dagster/provenance/index.html">pudl.dagster.provenance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/dagster/resources/index.html">pudl.dagster.resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/dagster/sensors/index.html">pudl.dagster.sensors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/dbt_schema/index.html">pudl.dbt_schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/definitions/index.html">pudl.definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/defs/index.html">pudl.defs</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/deploy/index.html">pudl.deploy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/deploy/ferceqr/index.html">pudl.deploy.ferceqr</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/deploy/pudl/index.html">pudl.deploy.pudl</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/etl/index.html">pudl.etl</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/etl/asset_checks/index.html">pudl.etl.asset_checks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/etl/check_foreign_keys/index.html">pudl.etl.check_foreign_keys</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/etl/eia_bulk_elec_assets/index.html">pudl.etl.eia_bulk_elec_assets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/etl/ferc_to_sqlite_assets/index.html">pudl.etl.ferc_to_sqlite_assets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/etl/glue_assets/index.html">pudl.etl.glue_assets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/etl/static_assets/index.html">pudl.etl.static_assets</a></li>
-</ul>
-</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/extract/index.html">pudl.extract</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/extract/censusdp1tract/index.html">pudl.extract.censusdp1tract</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/extract/censuspep/index.html">pudl.extract.censuspep</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/extract/csv/index.html">pudl.extract.csv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/extract/dbf/index.html">pudl.extract.dbf</a></li>
@@ -459,14 +564,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/extract/xbrl/index.html">pudl.extract.xbrl</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/ferc_sqlite_provenance/index.html">pudl.ferc_sqlite_provenance</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/glue/index.html">pudl.glue</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/glue/ferc1_eia/index.html">pudl.glue.ferc1_eia</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/glue/ferc714/index.html">pudl.glue.ferc714</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/helpers/index.html">pudl.helpers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/io_managers/index.html">pudl.io_managers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/logging_helpers/index.html">pudl.logging_helpers</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/metadata/index.html">pudl.metadata</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/classes/index.html">pudl.metadata.classes</a></li>
@@ -474,10 +577,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/constants/index.html">pudl.metadata.constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/descriptions/index.html">pudl.metadata.descriptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/dfs/index.html">pudl.metadata.dfs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/dtypes/index.html">pudl.metadata.dtypes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/enums/index.html">pudl.metadata.enums</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/fields/index.html">pudl.metadata.fields</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/helpers/index.html">pudl.metadata.helpers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/labels/index.html">pudl.metadata.labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/patterns/index.html">pudl.metadata.patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/resource_helpers/index.html">pudl.metadata.resource_helpers</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../autoapi/pudl/metadata/resources/index.html">pudl.metadata.resources</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../autoapi/pudl/metadata/resources/allocate_gen_fuel/index.html">pudl.metadata.resources.allocate_gen_fuel</a></li>
@@ -511,6 +616,7 @@
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/sources/index.html">pudl.metadata.sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/units/index.html">pudl.metadata.units</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/metadata/warnings/index.html">pudl.metadata.warnings</a></li>
 </ul>
 </details></li>
@@ -587,13 +693,20 @@
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/package_data/vcerare/index.html">pudl.package_data.vcerare</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/resources/index.html">pudl.resources</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/scripts/index.html">pudl.scripts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/auto_match_utilities/index.html">pudl.scripts.auto_match_utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/check_path_permissions/index.html">pudl.scripts.check_path_permissions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/dbt_helper/index.html">pudl.scripts.dbt_helper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/deploy/index.html">pudl.scripts.deploy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/dghome/index.html">pudl.scripts.dghome</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/generate_ferc_provenance/index.html">pudl.scripts.generate_ferc_provenance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/generate_pudl_duckdb/index.html">pudl.scripts.generate_pudl_duckdb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/metadata_to_rst/index.html">pudl.scripts.metadata_to_rst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/pudl_check_fks/index.html">pudl.scripts.pudl_check_fks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/pudl_check_for_build/index.html">pudl.scripts.pudl_check_for_build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/pudl_datastore/index.html">pudl.scripts.pudl_datastore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/pudl_deploy/index.html">pudl.scripts.pudl_deploy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/pudl_null_cols/index.html">pudl.scripts.pudl_null_cols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/pudl_service_territories/index.html">pudl.scripts.pudl_service_territories</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/resource_description/index.html">pudl.scripts.resource_description</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/update_zenodo_dois/index.html">pudl.scripts.update_zenodo_dois</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/scripts/zenodo_data_release/index.html">pudl.scripts.zenodo_data_release</a></li>
@@ -633,7 +746,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/transform/vcerare/index.html">pudl.transform.vcerare</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../autoapi/pudl/validate/index.html">pudl.validate</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/validate/index.html">pudl.validate</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/validate/dbt/index.html">pudl.validate.dbt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/validate/integrity/index.html">pudl.validate.integrity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/validate/quality/index.html">pudl.validate.quality</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../autoapi/pudl/workspace/index.html">pudl.workspace</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/workspace/datastore/index.html">pudl.workspace.datastore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../autoapi/pudl/workspace/resource_cache/index.html">pudl.workspace.resource_cache</a></li>
@@ -658,6 +776,7 @@
 <li class="toctree-l2"><a class="reference internal" href="run_a_release.html">Run a Versioned Release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pudl_id_mapping.html">PUDL ID Mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="naming_conventions.html">Naming Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llm_best_practices.html">Best practices for working with LLMs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_guidelines.html">Data and ETL Design Guidelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nightly_data_builds.html">Nightly Data Builds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ferceqr_data_builds.html">FERC EQR Data Builds</a></li>
@@ -947,7 +1066,7 @@ Availability [True]: 2024
           PK [True]: respondent_id_ferc714, datetime_utc
     Warnings [2]:
  custom - The datetime_utc timestamps have been cleaned due to inconsistent datetime reporting. See below for additional details.
- ferc_is_hard - FERC data is notoriously difficult to extract cleanly, and often contains free-form strings, non-labeled total rows and lack of IDs. See `Notable Irregularities &lt;https://catalystcoop-pudl.readthedocs.io/en/latest/data_sources/ferc1.html#notable-irregularities&gt;`_ for details.
+ ferc_is_hard - FERC data is notoriously difficult to extract cleanly, and often contains free-form strings, non-labeled total rows and lack of IDs. See `Notable Irregularities &lt;https://docs.catalyst.coop/pudl/en/latest/data_sources/ferc1.html#notable-irregularities&gt;`_ for details.
      Details [True]:
 This table includes data from the pre-2021 CSV raw source as well as the
 newer 2021 through present XBRL raw source.
@@ -1000,19 +1119,22 @@ the same name share the same general definition, no matter where you find them.<
 <p>Field names should:</p>
 <ul class="simple">
 <li><p>Be written as snake case (e.g., <code class="docutils literal notranslate"><span class="pre">report_date</span></code>.)</p></li>
-<li><p>Include units at the end where not implied (e.g., <code class="docutils literal notranslate"><span class="pre">volume_mcf</span></code>)</p></li>
-<li><p>Otherwise follow our established <a class="reference internal" href="naming_conventions.html"><span class="doc">Naming Conventions</span></a>.</p></li>
+<li><p>Include an intelligible units string as a suffix if applicable (e.g., <code class="docutils literal notranslate"><span class="pre">volume_mcf</span></code>)</p></li>
+<li><p>Follow our established <a class="reference internal" href="naming_conventions.html"><span class="doc">Naming Conventions</span></a>.</p></li>
 </ul>
 <p>To define metadata for a new field:</p>
 <ul class="simple">
 <li><p>First, search to make sure it doesn’t already exist. Often there’s an almost
-identical field from a different table.</p></li>
+identical field from a different table. We don’t want a proliferation of
+semantically identical but textually slightly different fields.</p></li>
 <li><p>To define a new field, add an entry to the dictionary with the following keys:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: The data type - integer, string, number, or boolean.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>: No more than a few sentences describing what the field
-contains.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">unit</span></code>: The unit of the column (when applicable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>: No more than a few sentences describing what the field contains.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unit</span></code>: The unit of the column (when applicable). Unit strings must be
+parseable by <a class="reference internal" href="../autoapi/pudl/metadata/units/index.html#pudl.metadata.units.PUDL_UNIT_REGISTRY" title="pudl.metadata.units.PUDL_UNIT_REGISTRY"><code class="xref py py-data docutils literal notranslate"><span class="pre">pudl.metadata.units.PUDL_UNIT_REGISTRY</span></code></a> — a
+<code class="docutils literal notranslate"><span class="pre">pint.UnitRegistry</span></code> that extends Pint’s defaults with esoteric US energy-industry
+units (<code class="docutils literal notranslate"><span class="pre">MMBtu</span></code>, <code class="docutils literal notranslate"><span class="pre">Mcf</span></code>, <code class="docutils literal notranslate"><span class="pre">MMcf</span></code>, <code class="docutils literal notranslate"><span class="pre">MVAr</span></code>, etc.). See below for more on Pint.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">constraints</span></code>: Categorical columns should largely be encoded by coding tables,
 but you can use this field to constrain a field to a short list of items
 using the <code class="docutils literal notranslate"><span class="pre">enum</span></code> key, or a regex pattern using the <code class="docutils literal notranslate"><span class="pre">pattern</span></code> key.</p></li>
@@ -1023,6 +1145,27 @@ using the <code class="docutils literal notranslate"><span class="pre">enum</spa
 than the one already existing in fields.py. In those cases, we can override the field
 description for just one resource by adding the resource and the field definition into
 <a class="reference internal" href="../autoapi/pudl/metadata/fields/index.html#pudl.metadata.fields.FIELD_METADATA_BY_RESOURCE" title="pudl.metadata.fields.FIELD_METADATA_BY_RESOURCE"><code class="xref py py-const docutils literal notranslate"><span class="pre">pudl.metadata.fields.FIELD_METADATA_BY_RESOURCE</span></code></a>.</p>
+</section>
+<section id="machine-readable-units-with-pint">
+<span id="pint-units"></span><h2>Machine-readable units with pint<a class="headerlink" href="#machine-readable-units-with-pint" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://pint.readthedocs.io/">Pint package</a> provides a syntax for parsing units
+and defining new units. We use it to ensure that the <code class="docutils literal notranslate"><span class="pre">unit</span></code> annotations on our fields
+are valid and parsable so that quantities with different units can be programmatically
+converted for comparison and analysis, and to help guard against inappropriate
+combinations, for example, summing values that are a mix of MWh (energy) and MW (power).</p>
+<p>Some guidelines:</p>
+<ul class="simple">
+<li><p>When defining compound units in field metadata, use slash-with-spaces — e.g. <code class="docutils literal notranslate"><span class="pre">MMBtu</span> <span class="pre">/</span>
+<span class="pre">MWh</span></code>, <code class="docutils literal notranslate"><span class="pre">USD</span> <span class="pre">/</span> <span class="pre">MWh</span></code>, <code class="docutils literal notranslate"><span class="pre">gallon</span> <span class="pre">/</span> <span class="pre">minute</span></code>.</p></li>
+<li><p>Use Pint’s built-in <code class="docutils literal notranslate"><span class="pre">count</span></code> unit for fields that enumerate discrete items
+(customers, employees, meters, generators, etc.).</p></li>
+<li><p>Do <strong>not</strong> conflate “percent” with fractional values. In most cases data reported as a
+percentage (value between 0 and 100) it should be converted to a fraction (value
+between 0 and 1) when it is processed in PUDL. If a column truly is a percentage, give
+it the unit <code class="docutils literal notranslate"><span class="pre">percent</span></code></p></li>
+</ul>
+<p>If you want to see the full repertoire of defined base unit strings Pint understands,
+you can do something like:</p>
 </section>
 </section>
 
@@ -1087,6 +1230,7 @@ description for just one resource by adding the resource and the field definitio
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#field-metadata">Field metadata</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-readable-units-with-pint">Machine-readable units with pint</a></li>
 </ul>
   </nav></div>
 
@@ -1112,8 +1256,8 @@ description for just one resource by adding the resource and the field definitio
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1147,7 +1291,12 @@ description for just one resource by adding the resource and the field definitio
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+        <div class="footer-item">
+<p class="llms-txt-link">
+  <a href="../llms.txt"><span class="fa-solid fa-robot"></span> llms.txt</a>
 </p></div>
       
     </div>
